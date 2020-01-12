@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load django_tables2 %}
+
+{% block catalogue_active %}active{% endblock %}
+
+{% block prime %}
+<div id="catalogue-table">
+<h2>International Organization for Astronomical Science Advancements</h2>
+<h1>Star Catalogue</h1>
+    {% if filter %}
+        <form action="#catalogue-table" method="get">
+            <input class="search-input" type="text" name="starid" placeholder="Введите ID Звезды" onclick="addHD(this)">
+            <button class="search-button">Поиск</button>
+        </form>
+    {% endif %}
+    {% render_table table %}
+</div>
+{% endblock %}
+{% block pre_footer %}
+<div class="catalogue-banner">
+    <div class="col-1 f-2">
+        <h2>IOASA Star Catalogue <span class="yellow">2020</span></h2>
+        <h3>Available on Feb 30</h3>
+        <p>All revenues are distributed among current and future projects</p>
+    </div>
+    <div class="col-2 f-2">
+        <h3>Over 5000 records from 52 countries</h3>
+        <p>Issued for all major libraries</p>
+        <a class="menu-button" href="{% url 'partners' %}">Join</a>
+    </div>
+    <div class="f-1">
+    </div>
+</div>
+{% endblock %}

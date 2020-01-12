@@ -1,0 +1,89 @@
+{% load sass_tags %}
+{% load thumbnail %}
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{% sass_src 'css/style.scss' %}" >
+    <title>International Organization for Astronomical Science Advancement</title>
+</head>
+<body>
+    <div class="main">
+        <div class="header m-a-top">
+            <div class="row a-center f-2">
+                <a class="f-2 m-d-none" href="{% url 'main' %}"><img class="logo" src="{% static 'img/IOASA_logo.png' %}"></a>
+                <div class="h-unit f-3">
+                    <h4 class="bordered">IOASA</h4>
+                    <p class="bunken">International Organization for Astronomical Science Advancement</p>
+                    <br>
+                    <p class="faded">Continuous support for astronomical research since 1980</p>
+                </div>
+            </div>
+            <div class="row f-3">
+                <div class="h-unit">
+                    <p class="bordered">Contacts</p>
+                    <p>Press: agents@ioasa.org</p>
+                    <p>Become a Sponsor: join@ioasa.org</p>
+                    <br class="m-d-none">
+                    <p>Name a Star with IOASA</p>
+                    <p>starcatalogue@ioasa.org</p>
+                </div>
+                <div class="h-unit">
+                    <p class="bordered">Location</p>
+                    <p>Camí de l'Observatori, s/n,</p>
+                    <p>08035, Barcelona, Spain</p>
+                    <br class="m-d-none">
+                    <p>+34 934 17 57 36</p>
+                </div>
+            </div>
+        </div>
+        <div class="content">
+            <div class="menu">
+                <a href="{% url 'main' %}" class="menu-button {% block news_active %}{% endblock %}">News</a>
+                <a href="{% url 'catalogue' %}" class="menu-button {% block catalogue_active %}{% endblock %}">Online Star Catalogue</a>
+                <a href="{% url 'partners' %}" class="menu-button {% block partners_active %}{% endblock %}">Partners</a>
+                <a href="{% url 'about' %}" class="menu-button {% block about_active %}{% endblock %}">About IOASA</a>
+            </div>
+            {% block prime %}
+            {% endblock %}
+        </div>
+        {% block pre_footer %}
+        {% endblock %}
+        <div class="footer">
+
+            <div class="f-unit f-unit-1">
+                <div class="row">
+                    <div class="f-1">
+                        <img class="logo" src="{% static 'img/IOASA_logo.png' %}">
+                    </div>
+                    <div class="f-3 p-l-1">
+                        <h4>IOASA</h4>
+                        <p>International Organization for Astronomical Science Advancements</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="f-unit f-unit-2">
+                    <p class="bordered">Contacts</p>
+                    <p>Press: agents@ioasa.org</p>
+                    <p>Become a Sponsor: join@ioasa.org</p>
+                    <br>
+                    <p>Name a Star with IOASA</p>
+                    <p>starcatalogue@ioasa.org</p>
+                </div>
+                <div class="f-unit f-unit-3">
+                    <p class="bordered">Location</p>
+                    <p>Camí de l'Observatori, s/n,</p>
+                    <p>08035, Barcelona, Spain</p>
+                    <br>
+                    <p>+34 934 17 57 36</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="{% static 'js/main.js' %}"></script>
+
+</body>
+</html>
