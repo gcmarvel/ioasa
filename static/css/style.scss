@@ -69,7 +69,7 @@ h1 {
 
 a {
   font-size: 1.2vw;
-  color: mediumblue;
+  color: #2d6bd5;
   text-decoration: none;
 
   @include breakpoint {
@@ -227,7 +227,7 @@ a {
 .last-group {
   display: flex;
   margin-bottom: 1vw;
-  align-items: center;
+  align-items: start;
 
   img {
     padding-right: 0.5vw;
@@ -321,7 +321,7 @@ a {
   background: url('../img/Banner_catalogue.jpg');
   background-repeat: no-repeat;
   background-size: cover;
-  height: 15vw;
+  padding-bottom: 1vw;
   display: flex;
   color: white;
 
@@ -629,6 +629,10 @@ a {
   img {
     max-height: 5vw;
     width: auto;
+
+    @include breakpoint {
+    max-height: 10vw;
+  }
   }
 }
 
