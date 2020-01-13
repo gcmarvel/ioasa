@@ -613,7 +613,6 @@ a {
   display: grid;
   grid-template-columns: 30% 30% 30%;
   grid-column-gap: 5%;
-  grid-template-rows: 10vw;
   grid-row-gap: 3vw;
   padding: 0 4vw;
   margin-bottom: 6vw;
@@ -621,7 +620,6 @@ a {
     @include breakpoint {
     grid-template-columns: 45% 45%;
     grid-column-gap: 10%;
-    grid-template-rows: 20vw;
     grid-row-gap: 10vw;
     margin-bottom: 8vw;
   }
