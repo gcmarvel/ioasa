@@ -191,6 +191,28 @@ a {
   margin-bottom: 1vw;
 }
 
+.article-content {
+  max-height: 50vw;
+  overflow: hidden;
+}
+
+.article-button {
+  text-align: center;
+  margin-top: 2vw;
+  cursor: pointer;
+}
+
+.button-collapse, .button-expand {
+  background: dodgerblue;
+  padding: 1vw 2vw;
+  width: 2vw;
+  color: white;
+}
+
+.button-collapse {
+  display: none;
+}
+
 .sidebar {
   flex: 1;
   margin: 2vw 0 0 2vw;

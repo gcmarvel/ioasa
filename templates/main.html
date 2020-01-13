@@ -4,67 +4,73 @@
 {% block news_active %}active{% endblock %}
 {% block prime %}
     <div class="prime">
-                <div class="articles">
-                    {% for article in articles %}
-                        <div class="title">
-                            <h1>{{ article.title }}</h1>
-                            <p>{{ article.date }}</p>
-                        </div>
-                        <div class="image">
-                            {% thumbnail article.image '1000' as im %}
-                                <img src="{{ im.url }}" alt="{{ article.title }}">
-                            {% endthumbnail %}
-                        </div>
-                        <div class="text">
-                            <p>{{ article.content | linebreaksbr }}</p>
-                        </div>
-                    {% endfor %}
-                    <div class="pagination">
-                    {% if page_obj.has_previous %}
-                        <a href="?page=1"><<</a>
-                        <a href="?page={{ page_obj.previous_page_number }}"><</a>
-                        <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
-                    {% endif %}
-                    <span class="page-current">
-                        {{ page_obj.number }}
-                    </span>
-                    {% if page_obj.has_next %}
-                        <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
-                        <a href="?page={{ page_obj.next_page_number }}">></a>
-                        <a href="?page={{ page_obj.paginator.num_pages }}">>></a>
-                    {% endif %}
+        <div class="articles">
+            {% for article in articles %}
+                <div class="title">
+                    <h1>{{ article.title }}</h1>
+                    <p>{{ article.date }}</p>
+                </div>
+                <div class="image">
+                    {% thumbnail article.image '1000' as im %}
+                        <img src="{{ im.url }}" alt="{{ article.title }}">
+                    {% endthumbnail %}
+                </div>
+                <div class="text">
+                    <p class="article-content">{{ article.content | linebreaksbr }}</p>
+                    <div class="article-button">
+                        <a class="button-expand">Expand</a>
+                    </div>
+                    <div class="article-button">
+                        <a class="button-collapse">Collapse</a>
                     </div>
                 </div>
-                <div class="sidebar">
-                    {% for article in medium_articles %}
-                    <div class="random">
-                        <div class="random-image">
-                            {% thumbnail article.image '300' as im %}
-                                <a href="{% url 'main' %}?page={{ article.get_page }}"><img src="{{ im.url }}" alt="{{ article.title }}"></a>
-                            {% endthumbnail %}
-                        </div>
-                        <div class="random-title">
-                            <a href="{% url 'main' %}?page={{ article.get_page }}">{{ article.title }}</a>
-                        </div>
-                    </div>
-                    {% endfor %}
-                    <div class="banner">
-                        <img src="{% static 'img/banner_news_catalogue.png' %}">
-                    </div>
-                    <div class="last">
-                        {% for article in small_articles %}
-                        <div class="last-group">
-                            <div class="last-image">
-                            {% thumbnail article.image '50x50' crop='center' as im %}
-                                <a class="small" href="{% url 'main' %}?page={{ article.get_page }}"><img src="{{ im.url }}" alt="{{ article.title }}"></a>
-                            {% endthumbnail %}
-                            </div>
-                            <div class="last-title">
-                                <a class="small" href="{% url 'main' %}?page={{ article.get_page }}">{{ article.title }}</a>
-                            </div>
-                        </div>
-                        {% endfor %}
-                    </div>
+            {% endfor %}
+            <div class="pagination">
+            {% if page_obj.has_previous %}
+                <a href="?page=1"><<</a>
+                <a href="?page={{ page_obj.previous_page_number }}"><</a>
+                <a href="?page={{ page_obj.previous_page_number }}">{{ page_obj.previous_page_number }}</a>
+            {% endif %}
+            <span class="page-current">
+                {{ page_obj.number }}
+            </span>
+            {% if page_obj.has_next %}
+                <a href="?page={{ page_obj.next_page_number }}">{{ page_obj.next_page_number }}</a>
+                <a href="?page={{ page_obj.next_page_number }}">></a>
+                <a href="?page={{ page_obj.paginator.num_pages }}">>></a>
+            {% endif %}
+            </div>
+        </div>
+        <div class="sidebar">
+            {% for article in medium_articles %}
+            <div class="random">
+                <div class="random-image">
+                    {% thumbnail article.image '300' as im %}
+                        <a href="{% url 'main' %}?page={{ article.get_page }}"><img src="{{ im.url }}" alt="{{ article.title }}"></a>
+                    {% endthumbnail %}
+                </div>
+                <div class="random-title">
+                    <a href="{% url 'main' %}?page={{ article.get_page }}">{{ article.title }}</a>
                 </div>
             </div>
+            {% endfor %}
+            <div class="banner">
+                <img src="{% static 'img/banner_news_catalogue.png' %}">
+            </div>
+            <div class="last">
+                {% for article in small_articles %}
+                <div class="last-group">
+                    <div class="last-image">
+                    {% thumbnail article.image '50x50' crop='center' as im %}
+                        <a class="small" href="{% url 'main' %}?page={{ article.get_page }}"><img src="{{ im.url }}" alt="{{ article.title }}"></a>
+                    {% endthumbnail %}
+                    </div>
+                    <div class="last-title">
+                        <a class="small" href="{% url 'main' %}?page={{ article.get_page }}">{{ article.title }}</a>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
 {% endblock %}
