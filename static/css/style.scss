@@ -205,8 +205,11 @@ a {
 .button-collapse, .button-expand {
   background: dodgerblue;
   padding: 1vw 2vw;
-  width: 2vw;
   color: white;
+
+  @include breakpoint {
+    padding: 1.5vw 4vw;
+  }
 }
 
 .button-collapse {
