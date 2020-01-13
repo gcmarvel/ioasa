@@ -13,7 +13,7 @@ SECRET_KEY = '9#89+c1953pu^v8r-=2#v1mmgh&lfckzea^3dl8&r#!k40ra6t'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['ioasa.org']
+ALLOWED_HOSTS = ['www.ioasa.org']
 
 
 # Application definition
