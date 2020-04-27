@@ -1,4 +1,5 @@
 import os
+import socket
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
@@ -11,7 +12,17 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = '9#89+c1953pu^v8r-=2#v1mmgh&lfckzea^3dl8&r#!k40ra6t'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+try:
+    HOSTNAME = socket.gethostname()
+except:
+    HOSTNAME = 'localhost'
+
+
+
+if HOSTNAME == 'gcm-django-bootstraper':
+    DEBUG = True
+else:
+    DEBUG = False
 
 ALLOWED_HOSTS = ['www.ioasa.org',
                  '127.0.0.1']
