@@ -19,7 +19,7 @@ except:
 
 
 
-if HOSTNAME == 'gcm-django-bootstraper':
+if HOSTNAME == 'local':
     DEBUG = True
 else:
     DEBUG = False
