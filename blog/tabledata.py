@@ -9,4 +9,4 @@ with open('catalogue_data.csv', 'r') as cat_data:
     for line in data_reader:
         data.append({'starid': line['starid'], 'name': line['name'], 'country': line['country'], 'magnitude': line['magnitude'], 'constellation': line['constellation'], 'date': datetime.datetime.strptime(line['date'], '%Y-%m-%d').date(), })
 
-new_data = [x for x in data if x['date'] <= (datetime.date.today() - timedelta(days=1))]
+new_data = [x for x in data if x['date'] <= (datetime.date.today())]
